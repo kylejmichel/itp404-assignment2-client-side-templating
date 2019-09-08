@@ -19,27 +19,32 @@
     <div id="results">
       <template id="postsTemplate">
 
-        <div style="background: red; width: 100px;height: 100px">
-
-        </div>
-        {{ #each posts }}
-        <div>
-          {{ data.title }}
-        </div>
-        <!-- <div class="row">
-          <h1 class="title">
-            {{ title }}
-          </h1>
+        {{#each posts}}
+        <div class="row">
+          <a href="{{data.url}}" target="_blank">
+            <h1 class="title">
+              {{ data.title }}
+            </h1>
+          </a>
         </a>
           <div class="subscribers">
-            {{ subscribers }}
+            <script>
+              var score
+            </script>
+            Subreddit subscribers: {{commas data.subreddit_subscribers}}
           </div>
           <div class="score">
-            {{ score }}
+            Post score: {{commas data.score}}
           </div>
           <div class="comments">
 
-          </div> -->
+            {{#if data.num_comments}}
+              Comments: {{commas data.num_comments}}
+            {{/if}}
+
+          </div>
+
+        </div>
 
         {{/each}}
       </template>
